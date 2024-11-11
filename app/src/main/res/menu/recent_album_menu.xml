@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/clear_album"
+        android:title="@string/clear_album"
+        />
+    <item
+        android:id="@+id/go_recent_song"
+        android:title="@string/go_recent_song"
+        />
+    <item
+        android:id="@+id/go_recent_artist"
+        android:title="@string/go_recent_artist"
+        />
+</menu>

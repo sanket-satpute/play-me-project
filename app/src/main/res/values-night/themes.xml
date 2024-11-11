@@ -1,0 +1,133 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.PlayMe" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimaryVariant">@color/black</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/light_dark</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <!-- Customize your theme here. -->
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+
+        <item name="color">@color/white</item>
+        <item name="customColorValue">@color/white</item>
+        <item name="colorOnError">@color/white</item>
+        <item name="colorError">@color/white</item>
+        <item name="colorOnTertiary">@color/day_dark</item>
+    </style>
+
+    <!-- translucent status bar -->
+    <style name="Theme.PlayMe.TransparentStatusBar">
+        <item name="android:statusBarColor" >@android:color/transparent</item>
+        <item name="windowActionBar">true</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:fitsSystemWindows">false</item>
+    </style>
+
+    <style name="welcome_activity_theme" parent="Theme.PlayMe">
+        <item name="android:statusBarColor" >@color/orange</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">@color/white</item>
+    </style>
+
+    <style name="toolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="background">@android:color/transparent</item>
+        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="backgroundColor">@android:color/transparent</item>
+    </style>
+
+    <style name="TabLayoutTextAppearanceTab" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="ShapeAppearance.App.LargeComponent" parent="ShapeAppearance.MaterialComponents.LargeComponent">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">24dp</item>
+    </style>
+
+    <style name="SlidingDialogAnimation">
+        <item name="android:windowEnterAnimation">@android:anim/slide_in_left</item>
+        <item name="android:windowExitAnimation">@android:anim/slide_out_right</item>
+    </style>
+
+    <style name="ScalingDilogAnimation">
+        <item name="android:windowEnterAnimation">@anim/scale_zero_to_full</item>
+        <item name="android:windowExitAnimation">@anim/scale_full_to_zero</item>
+    </style>
+
+    <style name="UpDownDialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_in_up</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_up</item>
+    </style>
+
+    <style name="RecyclerViewStyle" parent="">
+        <item name="backgroundTint">@color/black</item>
+        <item name="background">@color/black</item>
+        <item name="backgroundColor">@color/black</item>
+    </style>
+
+    <style name="CustomBottomSheetDialog" parent="ThemeOverlay.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/CustomBottomSheet</item>
+    </style>
+
+    <style name="CustomBottomSheet" parent="Widget.MaterialComponents.BottomSheet">
+        <item name="shapeAppearanceOverlay">@style/CustomShapeAppearanceBottomSheetDialog</item>
+    </style>
+
+    <style name="CustomShapeAppearanceBottomSheetDialog">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">16dp</item>
+        <item name="cornerSizeTopRight">16dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+
+    <style name="RoundedCornerAlertDialog" parent="MaterialAlertDialog.Material3">
+        <item name="shapeAppearanceOverlay">@style/DialogCorners</item>
+    </style>
+
+    <style name="DialogCorners">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">30dp</item>
+    </style>
+
+    <style name="RoundedCornerAlertDialogSmall" parent="MaterialAlertDialog.Material3">
+        <item name="shapeAppearanceOverlay">@style/DialogCornersSmall</item>
+    </style>
+
+    <style name="DialogCornersSmall">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">15dp</item>
+    </style>
+
+    <style name="RecyclerViewScrollbarStyle" parent="">
+        <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
+        <item name="android:scrollbarStyle">outsideInset</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:fadeScrollbars">false</item>
+        <item name="android:scrollbarThumbVertical">@drawable/scroll_bar_thumb</item>
+        <item name="android:scrollbarTrackVertical">@drawable/scroll_bar_track</item>
+        <item name="android:scrollbarSize">100dp</item>
+    </style>
+
+    <style name="WithdrawDialogStyle" parent="MaterialAlertDialog.Material3">
+        <item name="shapeAppearanceOverlay">@style/DialogCorners</item>
+    </style>
+
+    <style name="WithdrawDialogStyleShapeOverlay">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">30dp</item>
+    </style>
+
+    <style name="DarkSearchView" parent="Widget.AppCompat.SearchView">
+        <item name="android:backgroundTint">#000000</item>
+    </style>
+
+</resources>

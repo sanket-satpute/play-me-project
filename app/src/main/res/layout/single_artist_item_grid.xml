@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginEnd="12dp"
+    android:layout_marginVertical="16dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_img"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardCornerRadius="500dp"
+        app:cardElevation="0dp"
+        android:backgroundTint="@color/day_dark"
+        android:background="@color/day_dark"
+        >
+        <ImageView
+            android:id="@+id/artist_src"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@mipmap/ic_artist"
+            android:contentDescription="@string/artist"
+            android:scaleType="centerCrop"
+            />
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <TextView
+        android:id="@+id/artist_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        app:layout_constraintTop_toBottomOf="@id/card_img"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"
+        android:layout_marginHorizontal="16dp"
+        android:maxWidth="130dp"
+        android:text="@string/feedback"
+        android:textAlignment="center"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

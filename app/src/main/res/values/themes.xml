@@ -1,0 +1,283 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.PlayMe" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorPrimaryVariant">@color/nevyblue</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/light_white</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <!-- Customize your theme here. -->
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+
+        <item name="color">@color/black</item>
+        <item name="customColorValue">@color/black</item>
+
+        <item name="colorOnError">@color/black</item>
+        <item name="colorError">@color/black</item>
+        <item name="colorOnTertiary">@color/day_dark</item>
+
+<!--        <item name="android:windowActivityTransitions">true</item>-->
+<!--        <item name="android:windowEnterTransition">@anim/start_activity_transition</item>-->
+<!--        <item name="android:windowSharedElementEnterTransition">@transition/change_image_transition</item>-->
+<!--        <item name="android:windowSharedElementExitTransition">@transition/change_image_transition</item>-->
+    </style>
+
+    <!-- translucent status bar -->
+    <style name="Theme.PlayMe.TransparentStatusBar">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:fitsSystemWindows">false</item>
+    </style>
+
+    <style name="welcome_activity_theme" parent="Theme.PlayMe">
+        <item name="android:statusBarColor" >@color/orange</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+    </style>
+
+    <style name="EditText" parent="Widget.AppCompat.EditText">
+        <item name="android:textCursorDrawable">@drawable/edittext_cursor</item>
+        <item name="backgroundTint">@color/light_orangiesh</item>
+    </style>
+
+    <style name="toolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="background">@android:color/transparent</item>
+        <item name="backgroundColor">@android:color/transparent</item>
+        <item name="backgroundTint">@android:color/transparent</item>
+    </style>
+
+    <style name="TabLayoutTextAppearanceTab" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Theme.PlayMe.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="ShapeAppearance.App.LargeComponent" parent="ShapeAppearance.MaterialComponents.LargeComponent">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">24dp</item>
+    </style>
+
+
+    <style name="SlidingDialogAnimation">
+        <item name="android:windowEnterAnimation">@android:anim/slide_in_left</item>
+        <item name="android:windowExitAnimation">@android:anim/slide_out_right</item>
+    </style>
+
+    <style name="ScalingDilogAnimation">
+        <item name="android:windowEnterAnimation">@anim/scale_zero_to_full</item>
+        <item name="android:windowExitAnimation">@anim/scale_full_to_zero</item>
+    </style>
+
+    <style name="RecyclerViewStyle" parent="">
+        <item name="backgroundTint">@color/white</item>
+        <item name="background">@color/white</item>
+        <item name="backgroundColor">@color/white</item>
+    </style>
+
+    <style name="UpDownDialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_in_up</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_up</item>
+    </style>
+
+    <style name="Theme.Music_2Player.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Music_2Player.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+<!--    <style name="Button" parent="Widget.AppCompat.Button">-->
+<!--        <item name="borderlessButtonStyle">@color/red</item>-->
+<!--    </style>-->
+
+
+    <!--    alert dilog theme   -->
+    <style name="Theme.App" parent="Theme.MaterialComponents.Dialog.Alert">
+        ...
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.App.MaterialAlertDialog</item>
+    </style>
+
+    <style name="ThemeOverlay.App.MaterialAlertDialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+<!--        <item name="colorPrimary">@color/shrine_pink_100</item>-->
+<!--        <item name="colorSecondary">@color/shrine_pink_100</item>-->
+<!--        <item name="colorSurface">@color/shrine_pink_light</item>-->
+<!--        <item name="colorOnSurface">@color/shrine_pink_900</item>-->
+        <item name="alertDialogStyle">@style/MaterialAlertDialog.App</item>
+<!--        <item name="materialAlertDialogTitleTextStyle">@style/MaterialAlertDialog.App.Title.Text</item>-->
+<!--        <item name="buttonBarPositiveButtonStyle">@style/Widget.App.Button</item>-->
+<!--        <item name="buttonBarNeutralButtonStyle">@style/Widget.App.Button</item>-->
+    </style>
+
+    <!--    Second theme    -->
+    <style name="MaterialAlertDialog.App" parent="MaterialAlertDialog.MaterialComponents">
+        <item name="shapeAppearance">@style/ShapeAppearance.App.MediumComponent</item>
+    </style>
+
+<!--    <style name="MaterialAlertDialog.App.Title.Text" parent="MaterialAlertDialog.MaterialComponents.Title.Text">-->
+<!--        <item name="android:textColor">@color/shrine_pink_900</item>-->
+<!--    </style>-->
+
+<!--    <style name="Widget.App.Button" parent="Widget.MaterialComponents.Button.TextButton.Dialog">-->
+<!--        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Button.TextButton</item>-->
+<!--        <item name="shapeAppearance">@style/ShapeAppearance.App.SmallComponent</item>-->
+<!--    </style>-->
+
+    <style name="RoundedCornerAlertDialog" parent="MaterialAlertDialog.Material3">
+        <item name="shapeAppearanceOverlay">@style/DialogCorners</item>
+    </style>
+
+    <style name="DialogCorners">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">30dp</item>
+    </style>
+
+    <style name="RoundedCornerAlertDialogSmall" parent="MaterialAlertDialog.Material3">
+        <item name="shapeAppearanceOverlay">@style/DialogCornersSmall</item>
+    </style>
+
+    <style name="DialogCornersSmall">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">15dp</item>
+    </style>
+
+    <style name="ShapeAppearance.App.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
+    <style name="ShapeAppearance.App.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">4dp</item>
+    </style>
+
+    <style name="CustomBottomSheetDialog" parent="ThemeOverlay.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/CustomBottomSheet</item>
+    </style>
+
+    <style name="CustomBottomSheet" parent="Widget.MaterialComponents.BottomSheet">
+        <item name="shapeAppearanceOverlay">@style/CustomShapeAppearanceBottomSheetDialog</item>
+    </style>
+
+    <style name="CustomShapeAppearanceBottomSheetDialog">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">16dp</item>
+        <item name="cornerSizeTopRight">16dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+    
+    <style name="ShapeAppearanceOverlayCornerRoundFull" parent="">
+        <item name="cornerSizeTopRight">75dp</item>
+        <item name="cornerFamilyTopRight">rounded</item>
+        <item name="cornerFamilyBottomRight">rounded</item>
+        <item name="cornerFamilyTopLeft">rounded</item>
+        <item name="cornerFamilyBottomLeft">rounded</item>
+        <item name="cornerSizeBottomLeft">75dp</item>
+        <item name="cornerSizeBottomRight">75dp</item>
+        <item name="cornerSizeTopLeft">75dp</item>
+    </style>
+
+    <style name="Theme_Solid_Colored" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/red</item>
+        <item name="colorPrimaryVariant">@color/green</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/golden</item>
+        <item name="colorOnSecondary">@color/light_orangiesh</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <!-- Customize your theme here. -->
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+
+        <item name="color">@color/green</item>
+    </style>
+
+    <style name="Theme.TabText.ThemeActivity" parent="">
+        <item name="textAllCaps">false</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="RecyclerViewScrollbarStyle" parent="">
+        <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
+        <item name="android:scrollbarStyle">outsideInset</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:fadeScrollbars">false</item>
+        <item name="android:scrollbarThumbVertical">@drawable/scroll_bar_thumb</item>
+        <item name="android:scrollbarTrackVertical">@drawable/scroll_bar_track</item>
+        <item name="android:scrollbarSize">100dp</item>
+    </style>
+
+    <style name="Theme_PlayMe_Another" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimaryVariant">@color/black</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/light_dark</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <!-- Customize your theme here. -->
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+
+        <item name="cardElevation">0dp</item>
+
+        <item name="color">@color/white</item>
+        <item name="customColorValue">#65fafafa</item>
+        <item name="colorOnError">@color/white</item>
+        <item name="colorError">@color/black</item>
+        <item name="colorOnTertiary">@color/day_dark</item>
+    </style>
+
+    <style name="Equlizer_Spinner_theme" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="boxBackgroundColor">@android:color/transparent</item>
+        <item name="boxStrokeColor">@color/green</item>
+        <item name="boxStrokeWidth">10dp</item>
+        <item name="boxStrokeErrorColor">@color/red</item>
+        <item name="errorEnabled">true</item>
+        <item name="android:textColorHint">@color/blue</item>
+        <item name="materialThemeOverlay">@style/Equlizer_Spinner_theme_Overlay</item>
+    </style>
+
+    <style name="Equlizer_Spinner_theme_Overlay" parent="">
+        <item name="autoCompleteTextViewStyle">@style/Equlizer_Spinner_theme_Overlay_AutoCompleteTextView</item>
+        <item name="colorSurface">#E68A8E8A</item>
+        <item name="colorOnSurface">#6D84D8</item>
+    </style>
+
+    <style name="Equlizer_Spinner_theme_Overlay_AutoCompleteTextView" parent="Widget.AppCompat.AutoCompleteTextView">
+        <item name="background">@color/teal_200</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textColor">@color/orange</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="WithdrawDialogStyle" parent="MaterialAlertDialog.Material3">
+        <item name="shapeAppearanceOverlay">@style/DialogCorners</item>
+    </style>
+
+    <style name="WithdrawDialogStyleShapeOverlay">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">30dp</item>
+    </style>
+
+    <style name="DarkSearchView" parent="Widget.AppCompat.SearchView">
+        <item name="android:tint">@color/red</item>
+        <item name="tint">@color/blue</item>
+        <item name="android:textColorHint">@color/green</item>
+        <item name="hintTextColor">@color/blue</item>
+    </style>
+
+</resources>

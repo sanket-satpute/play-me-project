@@ -1,0 +1,649 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".project.activity.PlayerDesignActivity">
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        >
+
+    <RelativeLayout
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"
+        >
+
+        <ImageView
+            android:id="@+id/back_pressed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/back"
+            android:src="@drawable/ic_baseline_arrow_left_alt_24" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_toEndOf="@id/back_pressed"
+            android:fontFamily="@font/baloo_bhai"
+            android:text="@string/player_design"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/selected_activity_design"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:background="@color/red"
+        app:layout_constraintTop_toBottomOf="@id/top_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"
+        app:cardElevation="20dp"
+        android:backgroundTint="?attr/color"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:baselineAligned="false">
+        <RelativeLayout
+            android:id="@+id/round_design"
+            android:layout_width="130dp"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            >
+
+            <ImageView
+                android:id="@+id/selector_img_round"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/see_less"
+                android:src="@drawable/rect_shape_selected" />
+
+            <ImageView
+                android:id="@+id/round_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="12dp"
+                android:contentDescription="@string/refresh"
+                android:scaleType="fitXY"
+                android:src="@drawable/round_player"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/square_design"
+            android:layout_width="130dp"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            >
+
+            <ImageView
+                android:id="@+id/selector_img_square"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/see_less"
+                android:src="@drawable/rect_shape_selected"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/square_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="12dp"
+                android:contentDescription="@string/refresh"
+                android:scaleType="fitXY"
+                android:src="@drawable/square_player"
+                />
+        </RelativeLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/option_of_selection_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/selected_activity_design"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="16dp"
+        >
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="?attr/color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/round_activity_option"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp"
+            android:visibility="visible"
+            >
+
+            <TextView
+                android:id="@+id/round_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/round_player"
+                android:textSize="18sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                android:fontFamily="@font/baloo_bhai"
+                android:textColor="?attr/colorOnPrimary"
+                />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/player_background_switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/round_txt"
+                android:text="@string/player_background"
+                android:textSize="16sp"
+                android:textColor="?attr/colorOnPrimary"
+                android:layout_marginVertical="8dp"
+                android:thumb="@drawable/switch_thumb"
+                app:track="@drawable/switch_track"
+                android:checked="true"
+                />
+
+            <TextView
+                android:id="@+id/choose_background_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/choose_background_type"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@id/player_background_switch"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                android:textColor="?attr/colorOnPrimary"
+                android:layout_marginVertical="16dp"
+                />
+
+            <Spinner
+                android:id="@+id/spinner_background_types"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/choose_background_txt"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:spinnerMode="dialog"
+                android:textAlignment="textStart"
+                android:backgroundTint="?attr/colorOnPrimary"
+                android:background="?attr/colorOnPrimary"
+                android:layout_marginVertical="16dp"
+                />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/expand_btn_enable_disable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                app:layout_constraintTop_toBottomOf="@id/spinner_background_types"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/expand_button_enable_disable"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="16sp"
+                android:layoutDirection="rtl"
+                />
+
+            <TextView
+                android:id="@+id/bottom_design_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bottom_design"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/expand_btn_enable_disable"
+                android:textSize="16sp"
+                app:layout_constraintHorizontal_bias="0"
+                android:textColor="?attr/colorOnPrimary"
+                android:layout_marginVertical="16dp"
+                />
+
+            <LinearLayout
+                android:id="@+id/bottom_design"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:weightSum="2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bottom_design_txt"
+                android:baselineAligned="false">
+                <RelativeLayout
+                    android:id="@+id/frames_selected"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:padding="8dp"
+                        android:text="@string/frames"
+                        android:textColor="?attr/colorOnPrimary"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/select_frame_img"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:contentDescription="@string/see_less"
+                        android:src="@drawable/rect_shape_selected"
+                        android:visibility="gone"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/list_selected"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="@string/list"
+                        android:textSize="18sp"
+                        android:padding="8dp"
+                        android:textColor="?attr/colorOnPrimary"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/select_list_img"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:contentDescription="@string/see_less"
+                        android:src="@drawable/rect_shape_selected"
+                        android:visibility="visible" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/visulizer_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/visulizer"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bottom_design"
+                app:layout_constraintHorizontal_bias="0"
+                android:textColor="?attr/colorOnPrimary"
+                android:layout_marginVertical="16dp"
+                />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/visulizer_txt">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/previous_visulizer_card"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/colorOnPrimary"
+                    android:backgroundTint="?attr/colorOnPrimary"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/circle_visulizer"
+                    app:layout_constraintBottom_toBottomOf="@id/circle_visulizer"
+                    >
+                    <ImageView
+                        android:id="@+id/previous_visulizer"
+                        android:layout_width="20dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/next_visualizer"
+                        android:rotation="180"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="@string/previous"
+                        />
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/next_visulizer_card"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/colorOnPrimary"
+                    android:backgroundTint="?attr/colorOnPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/circle_visulizer"
+                    app:layout_constraintBottom_toBottomOf="@id/circle_visulizer"
+                    >
+                    <ImageView
+                        android:id="@+id/next_visulizer"
+                        android:layout_width="20dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/next_visualizer"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="@string/previous"
+                        />
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.chibde.visualizer.CircleVisualizer
+                    android:id="@+id/circle_visulizer"
+                    android:layout_width="170dp"
+                    android:layout_height="170dp"
+                    app:layout_constraintStart_toEndOf="@id/previous_visulizer_card"
+                    app:layout_constraintEnd_toStartOf="@id/next_visulizer_card"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@id/current_visulizer_txt"
+                    android:alpha="0"
+                    />
+
+                <com.chibde.visualizer.CircleBarVisualizer
+                    android:id="@+id/circle_bar_visulizer"
+                    android:layout_width="170dp"
+                    android:layout_height="170dp"
+                    app:layout_constraintStart_toEndOf="@id/previous_visulizer_card"
+                    app:layout_constraintEnd_toStartOf="@id/next_visulizer_card"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@id/current_visulizer_txt"
+                    android:alpha="0"
+                    />
+
+                <com.chibde.visualizer.CircleBarVisualizerSmooth
+                    android:id="@+id/circle_bar_visulizer_smooth"
+                    android:layout_width="170dp"
+                    android:layout_height="170dp"
+                    app:layout_constraintStart_toEndOf="@id/previous_visulizer_card"
+                    app:layout_constraintEnd_toStartOf="@id/next_visulizer_card"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@id/current_visulizer_txt"
+                    android:alpha="0"
+                    />
+
+                <com.chibde.visualizer.LineVisualizer
+                    android:id="@+id/line_visulizer"
+                    android:layout_width="170dp"
+                    android:layout_height="170dp"
+                    android:alpha="0"
+                    app:layout_constraintStart_toEndOf="@id/previous_visulizer_card"
+                    app:layout_constraintEnd_toStartOf="@id/next_visulizer_card"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@id/current_visulizer_txt"
+                    />
+
+                <com.chibde.visualizer.LineBarVisualizer
+                    android:id="@+id/line_bar_visulizer"
+                    android:layout_width="170dp"
+                    android:layout_height="170dp"
+                    android:alpha="0"
+                    app:layout_constraintStart_toEndOf="@id/previous_visulizer_card"
+                    app:layout_constraintEnd_toStartOf="@id/next_visulizer_card"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@id/current_visulizer_txt"
+                    />
+
+                <TextView
+                    android:id="@+id/current_visulizer_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/name"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/circle_visulizer"
+                    android:layout_marginTop="20dp"
+                    android:textColor="?attr/colorOnPrimary"
+                    android:textSize="16sp"
+                    />
+
+                <TextView
+                    android:id="@+id/set_color_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/select_color"
+                    app:layout_constraintTop_toBottomOf="@id/current_visulizer_txt"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    android:textColor="?attr/colorOnPrimary"
+                    android:layout_marginTop="16dp"/>
+
+                <Spinner
+                    android:id="@+id/visulizer_colors_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="?attr/colorOnPrimary"
+                    android:background="?attr/colorOnPrimary"
+                    app:layout_constraintTop_toBottomOf="@id/set_color_txt"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="5dp"
+                    android:spinnerMode="dialog"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/square_activity_option"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="gone"
+            android:layout_margin="16dp"
+            >
+            <TextView
+                android:id="@+id/square_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/square_player"
+                android:textSize="18sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                android:fontFamily="@font/baloo_bhai"
+                android:textColor="?attr/colorOnPrimary"
+                />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/square_background_switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="@string/player_background"
+                android:textColor="?attr/colorOnPrimary"
+                app:layout_constraintTop_toBottomOf="@id/square_txt"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:track="@drawable/switch_track"
+                android:thumb="@drawable/switch_thumb"
+                />
+
+            <TextView
+                android:id="@+id/background_type_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/choose_background_type"
+                android:textColor="?attr/colorOnPrimary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/square_background_switch"
+                app:layout_constraintHorizontal_bias="0"
+                android:textSize="16sp"
+                />
+
+            <Spinner
+                android:id="@+id/square_background_types_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/background_type_txt"
+                android:backgroundTint="?attr/colorOnPrimary"
+                android:background="?attr/colorOnPrimary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:spinnerMode="dialog"
+                android:layout_marginVertical="12dp"
+                />
+
+            <TextView
+                android:id="@+id/choose_bottom_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/choose_bottom"
+                app:layout_constraintTop_toBottomOf="@id/square_background_types_spinner"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="?attr/colorOnPrimary"
+                app:layout_constraintHorizontal_bias="0"
+                android:layout_marginVertical="12dp"
+                />
+
+            <RadioGroup
+                android:id="@+id/choose_bottom_radio_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/choose_bottom_txt"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                android:layout_marginVertical="12dp">
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/lyrics_radio_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lyrics"
+                    android:textColor="?attr/colorOnPrimary"
+                    />
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/visulizer_radio_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/visulizer"
+                    android:textColor="?attr/colorOnPrimary"
+                    />
+            </RadioGroup>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/visulizer_constraint_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@id/choose_bottom_radio_group"
+                >
+                <TextView
+                    android:id="@+id/square_visulizer_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="?attr/colorOnPrimary"
+                    android:text="@string/visulizer"
+                    android:textSize="16sp"
+                    android:layout_marginVertical="12dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+                <com.chibde.visualizer.BarVisualizer
+                    android:id="@+id/waveVisulizer"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/square_visulizer_txt"
+                    android:layout_marginVertical="12dp"
+                    />
+
+                <TextView
+                    android:id="@+id/square_visulizer_color_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="?attr/colorOnPrimary"
+                    app:layout_constraintTop_toBottomOf="@id/waveVisulizer"
+                    android:text="@string/select_color"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    android:layout_marginTop="12dp"
+                    />
+
+                <Spinner
+                    android:id="@+id/square_vis_color_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:spinnerMode="dialog"
+                    app:layout_constraintTop_toBottomOf="@id/square_visulizer_color_txt"
+                    android:backgroundTint="?attr/colorOnPrimary"
+                    android:background="?attr/colorOnPrimary"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginVertical="12dp"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginEnd="10dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/main_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:cardCornerRadius="10dp"
+        android:elevation="0dp"
+        app:cardElevation="0dp"
+        >
+        <ImageView
+            android:id="@+id/main_image_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@color/green"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:cardCornerRadius="10dp"
+            android:elevation="0dp"
+            app:cardElevation="0dp"
+            android:contentDescription="@string/image" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <ImageView
+        android:id="@+id/color_theme_selector"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/color_theme_selector"
+        app:layout_constraintStart_toStartOf="@id/main_image"
+        app:layout_constraintEnd_toEndOf="@id/main_image"
+        app:layout_constraintTop_toTopOf="@id/main_image"
+        app:layout_constraintBottom_toBottomOf="@id/main_image"
+        android:contentDescription="@string/select_color"
+        android:visibility="gone"
+        />
+
+    <ImageView
+        android:id="@+id/is_downloaded"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_round_arrow_circle_download_24"
+        app:layout_constraintStart_toStartOf="@id/main_image"
+        app:layout_constraintEnd_toEndOf="@id/main_image"
+        app:layout_constraintTop_toTopOf="@id/main_image"
+        app:layout_constraintBottom_toBottomOf="@id/main_image"
+        android:alpha="1"
+        android:visibility="gone"
+        app:tint="@color/white"
+        android:contentDescription="@string/image"
+        />
+
+    <ProgressBar
+        android:id="@+id/it_is_downloading"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        app:layout_constraintStart_toStartOf="@id/main_image"
+        app:layout_constraintEnd_toEndOf="@id/main_image"
+        app:layout_constraintTop_toTopOf="@id/main_image"
+        app:layout_constraintBottom_toBottomOf="@id/main_image"
+        android:visibility="gone"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".project.activity.LockScreenAndNotificationActivity">
+
+    <RelativeLayout
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"
+        >
+
+        <ImageView
+            android:id="@+id/back_pressed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/back"
+            android:src="@drawable/ic_baseline_arrow_left_alt_24" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_toEndOf="@id/back_pressed"
+            android:fontFamily="@font/baloo_bhai"
+            android:text="@string/lock_screen_amp_notification"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/notification_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/top_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"
+        android:backgroundTint="?attr/color"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="0dp"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="16dp"
+            >
+            <TextView
+                android:id="@+id/l_saa_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Notification"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="12sp"
+                android:textAllCaps="true"
+                android:alpha="0.7"
+                />
+
+            <RadioGroup
+                android:id="@+id/notification_radio_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintTop_toBottomOf="@id/l_saa_txt"
+                android:layout_marginTop="8dp"
+                >
+                <RelativeLayout
+                    android:id="@+id/use_retro_notification_relative"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="10dp"
+                    >
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/use_retro_notification_radio"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:button="@android:color/transparent"
+                        android:background="@drawable/modify_bar_radio_btn_states"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"/>
+
+                    <TextView
+                        android:id="@+id/use_retro_notification_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Use Retro Notification Design"
+                        android:textColor="?attr/colorOnPrimary"
+                        android:layout_toEndOf="@id/use_retro_notification_radio"
+                        android:layout_marginStart="9dp"
+                        android:layout_centerVertical="true"
+                        />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/use_standard_notification_relative"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="10dp"
+                    >
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/use_standard_notification_radio"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:checked="false"
+                        android:button="@android:color/transparent"
+                        android:background="@drawable/modify_bar_radio_btn_states"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"/>
+
+                    <TextView
+                        android:id="@+id/use_standard_notification_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Use Standard Notification Design"
+                        android:textColor="?attr/colorOnPrimary"
+                        android:layout_toEndOf="@id/use_standard_notification_radio"
+                        android:layout_marginStart="9dp"
+                        android:layout_centerVertical="true"
+                        />
+                </RelativeLayout>
+
+            </RadioGroup>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+<!--    <com.google.android.material.card.MaterialCardView-->
+<!--        android:id="@+id/first_card"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/top_layout"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        android:layout_margin="16dp"-->
+<!--        android:backgroundTint="?attr/color"-->
+<!--        app:cardCornerRadius="5dp"-->
+<!--        app:cardElevation="0dp"-->
+<!--        >-->
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_margin="16dp"-->
+<!--            >-->
+<!--            <TextView-->
+<!--                android:id="@+id/l_saa_txt"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Lock Screen Album Art"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                app:layout_constraintHorizontal_bias="0"-->
+<!--                android:textSize="20sp"-->
+<!--                android:textColor="?attr/colorOnPrimary"-->
+<!--                />-->
+
+<!--            <RadioGroup-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintHorizontal_bias="0.1"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/l_saa_txt"-->
+<!--                android:layout_marginTop="8dp"-->
+<!--                >-->
+<!--                <com.google.android.material.radiobutton.MaterialRadioButton-->
+<!--                    android:id="@+id/on_lock_album_art"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:text="@string/on"-->
+<!--                    android:textAllCaps="true"-->
+<!--                    android:textSize="18sp"-->
+<!--                    android:textColor="?attr/colorOnPrimary"-->
+<!--                    />-->
+
+<!--                <com.google.android.material.radiobutton.MaterialRadioButton-->
+<!--                    android:id="@+id/off_lock_album_art"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:text="@string/off_txt"-->
+<!--                    android:textAllCaps="true"-->
+<!--                    android:textSize="18sp"-->
+<!--                    android:textColor="?attr/colorOnPrimary"-->
+<!--                    />-->
+<!--            </RadioGroup>-->
+
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--    </com.google.android.material.card.MaterialCardView>-->
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/lockscreen_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/notification_card"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="?attr/color"
+        android:layout_margin="16dp"
+        app:cardElevation="0dp"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/lock_screen_play_parent_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="16dp"
+            >
+
+            <TextView
+                android:id="@+id/lock_screen_play_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lock Screen Play"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="12sp"
+                android:textAllCaps="true"
+                android:alpha="0.7"
+                />
+
+            <RelativeLayout
+                android:id="@+id/switch_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lock_screen_play_txt"
+                >
+                <TextView
+                    android:id="@+id/lock_screen_play_txt_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lock Screen Play"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    android:textColor="?attr/colorOnPrimary"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/lock_screen_play_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:contentDescription="@string/lock_screen_amp_notification"
+                    android:thumb="@drawable/switch_thumb"
+                    app:track="@drawable/switch_track"
+                    />
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/lock_screen_helper_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/switch_layout"
+                android:layout_alignParentStart="true"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="12sp"
+                android:alpha="0.5"
+                android:visibility="gone"
+                android:text="Play songs when the screen is locked. You can play, pause, skip to the next or previous track, and seek within the song directly from the lock screen without the need to turn on the phone. These controls are visible on the lock screen and remain accessible when the phone is locked or turned on."
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "882667113797",
+    "project_id": "playme-android",
+    "storage_bucket": "playme-android.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:882667113797:android:961a328f21ed2cd674822c",
+        "android_client_info": {
+          "package_name": "com.sanket_satpute_20.playme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "882667113797-04in2rjm1kg2efl60iekucem8h9q5jel.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sanket_satpute_20.playme",
+            "certificate_hash": "caf48ce650f822c54ff42714a20f7abdd11cc806"
+          }
+        },
+        {
+          "client_id": "882667113797-lt3jgj60vgctp4ugnnr3b771u4lpv9n7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkMNyf0oh7M4ER4HD08emSQi7RtzUyiHc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "882667113797-lt3jgj60vgctp4ugnnr3b771u4lpv9n7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

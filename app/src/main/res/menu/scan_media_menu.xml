@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="Skip less than 30 s"
+        android:checkable="true"
+        android:id="@+id/skip_less_than_30s"
+        />
+    <item
+        android:title="Skip less than 100 KB"
+        android:checkable="true"
+        android:id="@+id/skip_less_than_100kb"
+        />
+</menu>

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/add_to_playlist_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_to_playlist_2"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginStart="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        />
+
+    <RelativeLayout
+        android:id="@+id/recent_played_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/add_to_playlist_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        >
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/recent_played_card_child"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginHorizontal="10dp"
+            android:alpha="0.7"
+            android:background="@color/violet"
+            android:backgroundTint="@color/violet"
+            android:translationX="15dp"
+            app:cardCornerRadius="5dp" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/recent_played_card_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_centerVertical="true"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="5dp"
+            android:background="@color/violet"
+            android:backgroundTint="@color/violet"
+            app:cardCornerRadius="5dp"
+            >
+            <ImageView
+                android:id="@+id/recent"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_margin="8dp"
+                android:src="@drawable/recent_played_2"
+                app:tint="@color/light_white"
+                android:contentDescription="@string/fevourite" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="12dp"
+            android:layout_toEndOf="@id/recent_played_card_child"
+            android:text="@string/recent"
+            android:textSize="22sp"
+            tools:ignore="RelativeOverlap" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/recent_played_add_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/more" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/favourite_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/recent_played_add"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="6dp"
+        >
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/favorite_played_card_child"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="5dp"
+            android:alpha="0.7"
+            android:background="@color/light_orangiesh"
+            android:backgroundTint="@color/light_orangiesh"
+            android:translationX="15dp"
+            app:cardCornerRadius="5dp" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/favorite_played_card_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginHorizontal="10dp"
+            android:layout_centerVertical="true"
+            android:layout_marginVertical="5dp"
+            android:background="@color/light_orangiesh"
+            android:backgroundTint="@color/light_orangiesh"
+            app:cardCornerRadius="5dp">
+
+            <ImageView
+                android:id="@+id/loved"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_margin="8dp"
+                android:contentDescription="@string/fevourite"
+                android:src="@drawable/heart_filled_icon_24"
+                app:tint="@color/light_white"
+                android:transitionName="art_src"/>
+        </androidx.cardview.widget.CardView>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="12dp"
+            android:layout_toEndOf="@id/favorite_played_card_child"
+            android:text="@string/fevourite"
+            android:textSize="22sp"
+            tools:ignore="RelativeOverlap" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/fevourite_add_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/more" />
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_add_playlist_dilog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/favourite_add"
+        android:visibility="gone"
+        tools:listitem="@layout/single_playlist_item"
+        />
+
+    <RelativeLayout
+        android:id="@+id/create_new_playlist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/recycler_view_add_playlist_dilog"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="6dp"
+        >
+
+        <ImageView
+            android:id="@+id/create_playlist_src"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:alpha="0.8"
+            android:src="@drawable/rectangle"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="22dp"
+            android:layout_toEndOf="@id/create_playlist_src"
+            android:alpha="0.8"
+            android:text="@string/create_new_2"
+            android:textSize="22sp" />
+
+    </RelativeLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/save_btn_add_playlist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/create_new_playlist"
+        android:layout_marginTop="8dp"
+        android:text="@string/save"
+        android:textSize="16sp"
+        android:paddingVertical="8dp"
+        app:elevation="5dp"
+        android:layout_marginHorizontal="10dp"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

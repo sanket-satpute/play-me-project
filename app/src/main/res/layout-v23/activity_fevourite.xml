@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".project.activity.FevouriteActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+
+        <ImageView
+            android:id="@+id/fevourite_background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/background"
+            android:foreground="@drawable/gradient_bg_2"
+            android:scaleType="centerCrop"
+            android:src="@drawable/favourite_background_image"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="45dp"
+        android:layout_marginHorizontal="23dp"
+        >
+
+        <ImageView
+            android:id="@+id/back_pressed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:contentDescription="@string/back"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_baseline_arrow_left_alt_24"
+            app:tint="@color/white" />
+
+        <ImageView
+            android:id="@+id/option"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:contentDescription="@string/back"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_baseline_more_option_24"
+            app:tint="@color/white" />
+    </RelativeLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/fev_card"
+        android:layout_width="130dp"
+        android:layout_height="180dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintVertical_bias="0.25"
+        android:backgroundTint="@color/black"
+        android:paddingHorizontal="50dp"
+        app:cardCornerRadius="10dp"
+        >
+        <ImageView
+            android:id="@+id/fevourite_src"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@mipmap/ic_song"
+            android:scaleType="centerCrop"
+            android:layout_gravity="center"
+            android:transitionName="art_src"
+            android:contentDescription="@string/fevourite" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/txt_my_fev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="28sp"
+        android:fontFamily="@font/baloo_bhai"
+        android:text="@string/my_nfevourite"
+        app:layout_constraintStart_toEndOf="@id/fev_card"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/fev_card"
+        app:layout_constraintBottom_toBottomOf="@id/fev_card"
+        app:layout_constraintVertical_bias="0.2"
+        android:textColor="?attr/color"
+        android:maxLines="2"
+        android:textAlignment="center"
+        />
+
+    <TextView
+        android:id="@+id/which_how"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/txt_my_fev"
+        app:layout_constraintEnd_toEndOf="@id/txt_my_fev"
+        app:layout_constraintBottom_toBottomOf="@id/fev_card"
+        app:layout_constraintTop_toBottomOf="@id/txt_my_fev"
+        android:text="@string/song"
+        />
+
+    <TextView
+        android:id="@+id/txt_which"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/fev_card"
+        app:layout_constraintBottom_toTopOf="@id/fev_view_pager"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        android:text="@string/song_s"
+        android:textSize="22sp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/baloo_bhai"
+        />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/fev_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/tab_layoutFev"
+        app:layout_constraintTop_toBottomOf="@id/txt_which"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="20dp"
+        />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layoutFev"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tabIndicator="@drawable/tab_indicator_2"
+        app:tabIndicatorAnimationMode="linear"
+        app:tabIndicatorColor="@color/blue"
+        app:tabIndicatorFullWidth="false"
+        app:tabIndicatorGravity="top"
+        app:tabIndicatorHeight="3dp"
+        app:tabMode="fixed"
+        app:tabTextAppearance="@style/TabLayoutTextAppearanceTab"
+        >
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/song"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/song"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/artist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/artist"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/album"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/album"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/playlist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/playlist"/>
+    </com.google.android.material.tabs.TabLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

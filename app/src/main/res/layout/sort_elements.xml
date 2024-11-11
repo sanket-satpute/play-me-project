@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingHorizontal="16dp">
+
+    <com.google.android.material.circularreveal.cardview.CircularRevealCardView
+        android:id="@+id/divider"
+        android:layout_width="40dp"
+        android:layout_height="2dp"
+        android:backgroundTint="@color/green"
+        android:background="@color/green"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:cardCornerRadius="50dp"
+        app:cardElevation="0dp"
+        />
+
+    <TextView
+        android:id="@+id/srt_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/divider"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="@string/sort_by"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        app:layout_constraintHorizontal_bias="0"
+        android:fontFamily="@font/baloo_bhai"
+        />
+
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/srt_txt"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="@dimen/activity_vertical_margin"
+        android:gravity="center"
+        android:layoutDirection="rtl"
+        >
+
+        <RadioButton
+            android:id="@+id/by_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/by_name"
+            android:textAlignment="viewEnd"
+            android:textSize="18sp"
+            android:checked="true"
+            android:textAllCaps="false"
+            />
+
+        <RadioButton
+            android:id="@+id/by_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/by_date"
+            android:textAlignment="viewEnd"
+            android:textSize="18sp"
+            android:textAllCaps="false"/>
+
+        <RadioButton
+            android:id="@+id/by_size"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/by_size"
+            android:textAlignment="viewEnd"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/order_by_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/radio_group"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/order_by"
+        android:fontFamily="@font/baloo_bhai"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0"
+        android:layout_marginTop="10dp"
+        />
+
+
+    <RadioGroup
+        android:id="@+id/order_by"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/order_by_txt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layoutDirection="ltr"
+        app:barrierDirection="bottom"
+        app:flow_wrapMode="none"
+        android:textDirection="firstStrong"
+        android:layout_margin="10dp"
+        android:paddingBottom="16dp"
+        >
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/asc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/asc"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            app:useMaterialThemeColors="true"
+            />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/desc"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            />
+    </RadioGroup>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

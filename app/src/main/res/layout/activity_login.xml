@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".project.account.activity.LoginActivity">
+
+    <TextView
+        android:id="@+id/sign_in_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign In"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:layout_margin="24dp"
+        />
+
+    <TextView
+        android:id="@+id/sign_in_helper_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Stay connected and improve your treatment’s with efficiency. together"
+        app:layout_constraintTop_toBottomOf="@id/sign_in_txt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="8dp"
+        />
+
+    <TextView
+        android:id="@+id/email_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email  *"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/sign_in_helper_text"
+        app:layout_constraintStart_toStartOf="@id/sign_in_helper_text"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="24dp"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/email_id_outer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="26dp"
+        app:boxBackgroundColor="#d9d9d9"
+        app:boxCornerRadiusBottomEnd="8dp"
+        app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxCornerRadiusTopStart="8dp"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeColor="#ffa500"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/email_txt"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:errorEnabled="true"
+        app:errorTextColor="@color/red"
+        app:boxStrokeErrorColor="@color/red"
+        app:errorIconDrawable="@drawable/ic_round_error_info_24"
+        app:errorIconTint="@color/red">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/email_id"
+            android:inputType="textEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textCursorDrawable="@drawable/input_layout_edit_text_cursor"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/password_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password  *"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/email_id_outer"
+        app:layout_constraintStart_toStartOf="@id/sign_in_helper_text"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="26dp"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/password_outer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="26dp"
+        app:boxBackgroundColor="#d9d9d9"
+        app:boxCornerRadiusBottomEnd="8dp"
+        app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxCornerRadiusTopStart="8dp"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeColor="#ffa500"
+        app:endIconMode="password_toggle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/password_txt"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:errorEnabled="true"
+        app:errorTextColor="@color/red"
+        app:boxStrokeErrorColor="@color/red"
+        app:errorIconDrawable="@drawable/ic_round_error_info_24"
+        app:errorIconTint="@color/red">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textCursorDrawable="@drawable/input_layout_edit_text_cursor"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/sign_in_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="26dp"
+        android:paddingVertical="15dp"
+        app:cornerRadius="8dp"
+        app:backgroundTint="#ffa500"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password_outer"
+        android:elevation="0dp"
+        app:elevation="0dp"
+        />
+
+    <RelativeLayout
+        android:id="@+id/sign_in_btn_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/sign_in_button"
+        app:layout_constraintStart_toStartOf="@id/sign_in_button"
+        app:layout_constraintEnd_toEndOf="@id/sign_in_button"
+        app:layout_constraintBottom_toBottomOf="@id/sign_in_button"
+        android:elevation="10dp"
+        >
+        <ProgressBar
+            android:id="@+id/sign_in_btn_progress"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:elevation="10dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:visibility="gone"
+            android:layout_marginEnd="20dp"
+            android:progressTint="?attr/colorOnPrimary"
+            android:indeterminateTint="?attr/colorOnPrimary"
+            />
+        <TextView
+            android:id="@+id/sign_in_btn_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign In"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:elevation="10dp"
+            android:textColor="?attr/colorOnPrimary"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/sign_in_btn_progress"
+            />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="34dp"
+        >
+        <TextView
+            android:id="@+id/dont_hav_acc_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Don't have an account ? "
+            android:alpha="0.7"
+            />
+        <TextView
+            android:id="@+id/sign_up_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="Sign Up"
+            android:textStyle="bold"
+            android:textColor="?attr/colorPrimary"
+            android:layout_toEndOf="@id/dont_hav_acc_txt"
+            />
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

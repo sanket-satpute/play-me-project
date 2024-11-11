@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".project.account.fragments.ChangeEmailEnterEmailFragment">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        >
+        <TextView
+            android:id="@+id/change_email_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Change Email"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_marginTop="34dp"
+            android:layout_marginStart="24dp"
+            />
+
+        <TextView
+            android:id="@+id/change_email_helper_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enter new email which you want to apply to your account."
+            app:layout_constraintTop_toBottomOf="@id/change_email_txt"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="36dp"
+            android:alpha="0.7"
+            />
+
+        <TextView
+            android:id="@+id/new_email_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Email  *"
+            app:layout_constraintTop_toBottomOf="@id/change_email_helper_text"
+            app:layout_constraintStart_toStartOf="@id/change_email_helper_text"
+            android:layout_marginTop="46dp"
+            android:layout_marginStart="7dp"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/new_email_outer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="3dp"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxBackgroundColor="#d9d9d9"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeColor="#ffa500"
+            app:errorEnabled="true"
+            app:errorTextColor="@color/red"
+            app:errorIconTint="@color/red"
+            app:boxStrokeErrorColor="@color/red"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/new_email_txt">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/new_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:textCursorDrawable="@drawable/input_layout_edit_text_cursor"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/verify_email_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/new_email_outer"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="26dp"
+            app:cornerRadius="12dp"
+            android:paddingVertical="15dp"
+            app:backgroundTint="#ffa500"
+            android:outlineProvider="none"
+            />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="10dp"
+            app:layout_constraintStart_toStartOf="@id/verify_email_btn"
+            app:layout_constraintEnd_toEndOf="@id/verify_email_btn"
+            app:layout_constraintTop_toTopOf="@id/verify_email_btn"
+            app:layout_constraintBottom_toBottomOf="@id/verify_email_btn"
+            >
+            <ProgressBar
+                android:id="@+id/verify_email_btn_progress"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:indeterminateTint="@color/white"
+                android:layout_marginEnd="16dp"
+                android:visibility="gone"
+                />
+            <TextView
+                android:id="@+id/verify_email_btn_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Get OTP"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_toEndOf="@id/verify_email_btn_progress"
+                android:textColor="@color/white"
+                />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/verify_extra_msg_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:alpha="0.6"
+            android:visibility="gone"
+            android:textSize="11sp"
+            android:maxWidth="250dp"
+            android:text="massage is send you have to check email"
+            app:layout_constraintStart_toStartOf="@id/verify_email_btn"
+            app:layout_constraintEnd_toEndOf="@id/verify_email_btn"
+            app:layout_constraintTop_toBottomOf="@id/verify_email_btn"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

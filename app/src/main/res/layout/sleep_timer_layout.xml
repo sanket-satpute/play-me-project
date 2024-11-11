@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/tab_indicator"
+    android:backgroundTint="#F2EFEF"
+    android:layout_marginTop="10dp"
+    android:layout_gravity="bottom"
+    tools:context=".project.bottom_sheet_fragment.SleepTimerLayoutFragment">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/parent_divider"
+        android:layout_width="40dp"
+        android:layout_height="2dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="15dp"
+        android:background="@android:color/darker_gray"
+        android:backgroundTint="@android:color/darker_gray"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="0dp"
+        />
+
+    <me.tankery.lib.circularseekbar.CircularSeekBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        app:layout_constraintLeft_toLeftOf="@id/time_card"
+        app:layout_constraintRight_toRightOf="@id/time_card"
+        app:layout_constraintTop_toTopOf="@id/time_card"
+        app:layout_constraintBottom_toBottomOf="@id/time_card"
+        android:max="100"
+        app:cs_disable_progress_glow = "true"
+        android:progress="510"
+        app:cs_pointer_halo_color_ontouch = "@color/red"
+        app:cs_circle_stroke_width = "15dp"
+        app:cs_circle_color = "@android:color/transparent"
+        android:thumb="@null"
+        app:cs_maintain_equal_circle = "true"
+        app:cs_circle_progress_color = "@android:color/darker_gray"
+        />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/time_card"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="500dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="30dp"
+        app:cardElevation="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/cancel_btn"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/parent_divider">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/watch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/divider"
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="50dp"
+                app:dividerColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/hours"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_00"
+                android:textSize="55sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                app:layout_constraintHorizontal_bias="0.9"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/divider"
+                app:layout_constraintTop_toTopOf="@id/divider" />
+
+            <TextView
+                android:id="@+id/minutes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_00"
+                android:textSize="55sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintLeft_toRightOf="@id/divider"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/divider" />
+
+            <TextView
+                android:id="@+id/hourtxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hours"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="@id/divider"
+                app:layout_constraintHorizontal_bias="0.9"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/divider"
+                app:layout_constraintTop_toBottomOf="@id/hours"
+                app:layout_constraintVertical_bias="0.4" />
+
+            <TextView
+                android:id="@+id/minutetxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/minutes"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="@id/divider"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintLeft_toRightOf="@id/divider"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/minutes"
+                app:layout_constraintVertical_bias="0.4" />
+
+            <TextView
+                android:id="@+id/seconds"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/_00"
+                android:textColor="@color/black"
+                app:layout_constraintLeft_toLeftOf="@id/minutetxt"
+                app:layout_constraintTop_toBottomOf="@id/minutetxt" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/set_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"
+        android:text="@string/set"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        app:elevation="10dp"
+        android:elevation="10dp"
+        android:theme="@style/Theme.Material3.Dark.NoActionBar"
+        />
+
+    <Button
+        android:id="@+id/cancel_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/set_btn"
+        android:textColor="@color/black"
+        android:background="@android:color/transparent"
+        android:layout_margin="16dp"
+        android:text="@string/cancel"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        app:elevation="10dp"
+        android:elevation="10dp"
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

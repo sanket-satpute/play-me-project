@@ -1,0 +1,743 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".project.activity.EqulizerActivity">
+    
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <RelativeLayout
+                android:id="@+id/top_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="16dp"
+                >
+
+                <ImageView
+                    android:id="@+id/back_pressed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:contentDescription="@string/back"
+                    android:src="@drawable/ic_baseline_arrow_left_alt_24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_toEndOf="@id/back_pressed"
+                    android:fontFamily="@font/baloo_bhai"
+                    android:text="@string/equalizer"
+                    android:textSize="20sp"
+                    android:layout_centerVertical="true"
+                    android:textStyle="bold"
+                    tools:ignore="RelativeOverlap" />
+
+                <ImageView
+                    android:id="@+id/parent_equlizer_system"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="16dp"
+                    android:layout_toStartOf="@id/equlizer_on_off_switch"
+                    android:contentDescription="@string/equalizer"
+                    android:scaleX="1.1"
+                    android:scaleY="1.1"
+                    app:tint="?attr/color"
+                    android:src="@drawable/ic_round_equalizer_second_24" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/equlizer_on_off_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:thumb="@drawable/switch_thumb"
+                    app:track="@drawable/switch_track"
+                    />
+
+            </RelativeLayout>
+
+            <HorizontalScrollView
+                android:id="@+id/preset_reverb_parent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/top_layout"
+                app:layout_constraintEnd_toEndOf="@id/top_layout"
+                app:layout_constraintTop_toBottomOf="@id/top_layout"
+                android:scrollbars="horizontal"
+                android:layout_marginTop="7dp"
+                >
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/reverb_chips"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:singleSelection="true"
+                    >
+                </com.google.android.material.chip.ChipGroup>
+            </HorizontalScrollView>
+
+            <Spinner
+                android:id="@+id/presets_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/top_layout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="10dp"
+                android:entries="@array/equlizer_presets"
+                android:spinnerMode="dropdown"
+                android:visibility="gone"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                />
+
+            <RelativeLayout
+                android:id="@+id/equlizer_bars"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toBottomOf="@+id/preset_reverb_parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:nestedScrollingEnabled="false"
+                >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraint_frame_layout_eq"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:paddingVertical="25dp"
+                    android:nestedScrollingEnabled="false"
+                    >
+
+                    <FrameLayout
+                        android:id="@+id/frame_eq_seek_0"
+                        android:layout_width="32dp"
+                        android:layout_height="200dp"
+                        android:layout_gravity="center"
+                        android:orientation="vertical"
+                        android:nestedScrollingEnabled="false"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/frame_eq_seek_1"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                        <com.google.android.material.slider.Slider
+                            android:id="@+id/eq_seek_0"
+                            android:layout_width="200dp"
+                            android:layout_height="32dp"
+                            android:layout_gravity="center"
+                            android:rotation="270"
+                            app:trackColorActive="#ffa500"
+                            app:trackColorInactive="#59ffa500"
+                            app:thumbColor="#ffa500"
+                            android:nestedScrollingEnabled="false"
+                            app:trackHeight="10dp"
+                            android:valueFrom="0.1"
+                            android:valueTo="10" />
+
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/eq_0_changer_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="80"
+                        app:layout_constraintStart_toStartOf="@id/frame_eq_seek_0"
+                        app:layout_constraintEnd_toEndOf="@id/frame_eq_seek_0"
+                        app:layout_constraintBottom_toTopOf="@id/frame_eq_seek_0"
+                        android:alpha="0.7"
+                        android:textSize="13sp"
+                        android:layout_marginBottom="-5dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/eq_0_main_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-5dp"
+                        android:alpha="0.7"
+                        android:text="80"
+                        android:textSize="13sp"
+                        app:layout_constraintEnd_toEndOf="@id/frame_eq_seek_0"
+                        app:layout_constraintStart_toStartOf="@id/frame_eq_seek_0"
+                        app:layout_constraintTop_toBottomOf="@id/frame_eq_seek_0" />
+
+                    <FrameLayout
+                        android:id="@+id/frame_eq_seek_1"
+                        android:layout_width="32dp"
+                        android:layout_height="200dp"
+                        android:layout_gravity="center"
+                        android:orientation="vertical"
+                        android:nestedScrollingEnabled="false"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/frame_eq_seek_2"
+                        app:layout_constraintStart_toEndOf="@id/frame_eq_seek_0"
+                        app:layout_constraintTop_toTopOf="parent" >
+
+                        <com.google.android.material.slider.Slider
+                            android:id="@+id/eq_seek_1"
+                            android:layout_width="200dp"
+                            android:layout_height="32dp"
+                            android:layout_gravity="center"
+                            android:rotation="270"
+                            app:trackColorActive="#ffa500"
+                            app:trackColorInactive="#59ffa500"
+                            app:thumbColor="#ffa500"
+                            app:trackHeight="10dp"
+                            android:nestedScrollingEnabled="false"
+                            android:valueFrom="0.1"
+                            android:valueTo="10" />
+
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/eq_1_changer_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="80"
+                        app:layout_constraintStart_toStartOf="@id/frame_eq_seek_1"
+                        app:layout_constraintEnd_toEndOf="@id/frame_eq_seek_1"
+                        app:layout_constraintBottom_toTopOf="@id/frame_eq_seek_1"
+                        android:alpha="0.7"
+                        android:textSize="13sp"
+                        android:layout_marginBottom="-5dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/eq_1_main_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="80"
+                        app:layout_constraintStart_toStartOf="@id/frame_eq_seek_1"
+                        app:layout_constraintEnd_toEndOf="@id/frame_eq_seek_1"
+                        app:layout_constraintTop_toBottomOf="@id/frame_eq_seek_1"
+                        android:alpha="0.7"
+                        android:textSize="13sp"
+                        android:layout_marginTop="-5dp"
+                        />
+
+                    <FrameLayout
+                        android:id="@+id/frame_eq_seek_2"
+                        android:layout_width="32dp"
+                        android:layout_height="200dp"
+                        android:layout_gravity="center"
+                        android:orientation="vertical"
+                        android:nestedScrollingEnabled="false"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/frame_eq_seek_1"
+                        app:layout_constraintEnd_toStartOf="@id/frame_eq_seek_3"
+                        app:layout_constraintTop_toTopOf="parent" >
+
+                        <com.google.android.material.slider.Slider
+                            android:id="@+id/eq_seek_2"
+                            android:layout_width="200dp"
+                            android:layout_height="32dp"
+                            android:layout_gravity="center"
+                            android:rotation="270"
+                            app:trackHeight="10dp"
+                            app:trackColorActive="#ffa500"
+                            app:trackColorInactive="#59ffa500"
+                            app:thumbColor="#ffa500"
+                            android:nestedScrollingEnabled="false"
+                            android:valueFrom="0.1"
+                            android:valueTo="10" />
+
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/eq_2_changer_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="80"
+                        app:layout_constraintStart_toStartOf="@id/frame_eq_seek_2"
+                        app:layout_constraintEnd_toEndOf="@id/frame_eq_seek_2"
+                        app:layout_constraintBottom_toTopOf="@id/frame_eq_seek_2"
+                        android:alpha="0.7"
+                        android:textSize="13sp"
+                        android:layout_marginBottom="-5dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/eq_2_main_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="80"
+                        app:layout_constraintStart_toStartOf="@id/frame_eq_seek_2"
+                        app:layout_constraintEnd_toEndOf="@id/frame_eq_seek_2"
+                        app:layout_constraintTop_toBottomOf="@id/frame_eq_seek_2"
+                        android:alpha="0.7"
+                        android:textSize="13sp"
+                        android:layout_marginTop="-5dp"
+                        />
+
+                    <FrameLayout
+                        android:id="@+id/frame_eq_seek_3"
+                        android:layout_width="32dp"
+                        android:layout_height="200dp"
+                        android:layout_gravity="center"
+                        android:orientation="vertical"
+                        android:nestedScrollingEnabled="false"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/frame_eq_seek_4"
+                        app:layout_constraintStart_toEndOf="@id/frame_eq_seek_2"
+                        app:layout_constraintTop_toTopOf="parent" >
+
+                        <com.google.android.material.slider.Slider
+                            android:id="@+id/eq_seek_3"
+                            android:layout_width="200dp"
+                            android:layout_height="32dp"
+                            android:layout_gravity="center"
+                            android:rotation="270"
+                            app:trackHeight="10dp"
+                            app:trackColorActive="#ffa500"
+                            app:trackColorInactive="#59ffa500"
+                            app:thumbColor="#ffa500"
+                            android:nestedScrollingEnabled="false"
+                            android:valueFrom="0.1"
+                            android:valueTo="10" />
+
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/eq_3_changer_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="80"
+                        app:layout_constraintStart_toStartOf="@id/frame_eq_seek_3"
+                        app:layout_constraintEnd_toEndOf="@id/frame_eq_seek_3"
+                        app:layout_constraintBottom_toTopOf="@id/frame_eq_seek_3"
+                        android:alpha="0.7"
+                        android:textSize="13sp"
+                        android:layout_marginBottom="-5dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/eq_3_main_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="80"
+                        app:layout_constraintStart_toStartOf="@id/frame_eq_seek_3"
+                        app:layout_constraintEnd_toEndOf="@id/frame_eq_seek_3"
+                        app:layout_constraintTop_toBottomOf="@id/frame_eq_seek_3"
+                        android:alpha="0.7"
+                        android:textSize="13sp"
+                        android:layout_marginTop="-5dp"
+                        />
+
+                    <FrameLayout
+                        android:id="@+id/frame_eq_seek_4"
+                        android:layout_width="32dp"
+                        android:layout_height="200dp"
+                        android:layout_gravity="center"
+                        android:orientation="vertical"
+                        android:nestedScrollingEnabled="false"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/frame_eq_seek_3"
+                        app:layout_constraintTop_toTopOf="parent" >
+
+                        <com.google.android.material.slider.Slider
+                            android:id="@+id/eq_seek_4"
+                            android:layout_width="200dp"
+                            android:layout_height="32dp"
+                            android:layout_gravity="center"
+                            android:rotation="270"
+                            app:trackHeight="10dp"
+                            app:trackColorActive="#ffa500"
+                            app:trackColorInactive="#59ffa500"
+                            app:thumbColor="#ffa500"
+                            android:nestedScrollingEnabled="false"
+                            android:valueFrom="0.1"
+                            android:valueTo="10" />
+
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/eq_4_changer_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="80"
+                        app:layout_constraintStart_toStartOf="@id/frame_eq_seek_4"
+                        app:layout_constraintEnd_toEndOf="@id/frame_eq_seek_4"
+                        app:layout_constraintBottom_toTopOf="@id/frame_eq_seek_4"
+                        android:alpha="0.7"
+                        android:textSize="13sp"
+                        android:layout_marginBottom="-5dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/eq_4_main_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="80"
+                        app:layout_constraintStart_toStartOf="@id/frame_eq_seek_4"
+                        app:layout_constraintEnd_toEndOf="@id/frame_eq_seek_4"
+                        app:layout_constraintTop_toBottomOf="@id/frame_eq_seek_4"
+                        android:alpha="0.7"
+                        android:textSize="13sp"
+                        android:layout_marginTop="-5dp"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </RelativeLayout>
+
+            <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+            <!--        android:id="@+id/equlizer_bars"-->
+            <!--        android:layout_width="match_parent"-->
+            <!--        android:layout_height="200dp"-->
+            <!--        app:layout_constraintEnd_toEndOf="parent"-->
+            <!--        app:layout_constraintStart_toStartOf="parent"-->
+            <!--        app:layout_constraintTop_toBottomOf="@id/presets_spinner"-->
+            <!--        >-->
+
+            <!--        <SeekBar-->
+            <!--            android:id="@+id/eq_seek_0"-->
+            <!--            android:layout_width="200dp"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:translationX="250dp"-->
+            <!--            android:rotation="-90"-->
+            <!--            app:layout_constraintStart_toStartOf="parent"-->
+            <!--            app:layout_constraintEnd_toStartOf="@id/eq_seek_1"-->
+            <!--            app:layout_constraintTop_toTopOf="parent"-->
+            <!--            app:layout_constraintBottom_toBottomOf="parent"/>-->
+
+            <!--        <SeekBar-->
+            <!--            android:id="@+id/eq_seek_1"-->
+            <!--            android:layout_width="200dp"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:layout_toEndOf="@id/eq_seek_0"-->
+            <!--            android:layout_toStartOf="@id/eq_seek_2"-->
+            <!--            android:rotation="-90"-->
+            <!--            android:translationX="120dp"-->
+            <!--            app:layout_constraintEnd_toStartOf="@id/eq_seek_2"-->
+            <!--            app:layout_constraintStart_toEndOf="@id/eq_seek_0"-->
+            <!--            app:layout_constraintTop_toTopOf="parent"-->
+            <!--            app:layout_constraintBottom_toBottomOf="parent"/>-->
+
+            <!--        <SeekBar-->
+            <!--            android:id="@+id/eq_seek_2"-->
+            <!--            android:layout_width="200dp"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:text="@string/equalizer"-->
+            <!--            android:textSize="18sp"-->
+            <!--            android:rotation="-90"-->
+            <!--            app:layout_constraintStart_toEndOf="@id/eq_seek_1"-->
+            <!--            app:layout_constraintEnd_toStartOf="@id/eq_seek_3"-->
+            <!--            app:layout_constraintTop_toTopOf="parent"-->
+            <!--            app:layout_constraintBottom_toBottomOf="parent"/>-->
+
+            <!--        <SeekBar-->
+            <!--            android:id="@+id/eq_seek_3"-->
+            <!--            android:layout_width="200dp"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:text="@string/equalizer"-->
+            <!--            android:textSize="18sp"-->
+            <!--            android:rotation="-90"-->
+            <!--            android:translationX="-120dp"-->
+            <!--            app:layout_constraintStart_toEndOf="@id/eq_seek_2"-->
+            <!--            app:layout_constraintEnd_toStartOf="@id/eq_seek"-->
+            <!--            app:layout_constraintTop_toTopOf="parent"-->
+            <!--            app:layout_constraintBottom_toBottomOf="parent"/>-->
+
+            <!--        <SeekBar-->
+            <!--            android:id="@+id/eq_seek"-->
+            <!--            android:layout_width="200dp"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:text="@string/equalizer"-->
+            <!--            android:textSize="18sp"-->
+            <!--            android:rotation="-90"-->
+            <!--            android:translationX="-250dp"-->
+            <!--            app:layout_constraintStart_toEndOf="@id/eq_seek_3"-->
+            <!--            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--            app:layout_constraintTop_toTopOf="parent"-->
+            <!--            app:layout_constraintBottom_toBottomOf="parent"/>-->
+            <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/audio_effect_txt_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/equlizer_bars"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:id="@+id/first_divider"
+                    android:layout_width="0dp"
+                    android:layout_height="3dp"
+                    android:layout_marginStart="30dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/audio_effect_txt"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/audio_effect_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="17dp"
+                    android:text="@string/audio_effects"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/baloo_bhai"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/second_divider"
+                    app:layout_constraintStart_toEndOf="@id/first_divider"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:id="@+id/second_divider"
+                    android:layout_width="0dp"
+                    android:layout_height="3dp"
+                    android:layout_marginEnd="30dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/audio_effect_txt"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/audio_effect_txt_container"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="38dp"
+                >
+
+                <RelativeLayout
+                    android:id="@+id/bass_boost_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    >
+                    <me.tankery.lib.circularseekbar.CircularSeekBar
+                        android:id="@+id/bass_seekbar"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        app:cs_circle_style = "round"
+                        app:cs_pointer_stroke_width = "10dp"
+                        app:cs_circle_stroke_width = "20dp"
+                        app:cs_disable_progress_glow = "true"
+                        app:cs_pointer_color = "#ffa500"
+                        app:cs_pointer_halo_border_width = "0dp"
+                        app:cs_pointer_halo_width = "0dp"
+                        app:cs_circle_progress_color = "#ffa500"
+                        app:cs_hide_progress_when_empty = "true"
+                        app:cs_circle_color = "#59ffa500"
+                        app:cs_negative_enabled = "false"
+                        app:cs_move_outside_circle = "true"
+                        app:cs_maintain_equal_circle = "true"
+                        app:cs_start_angle = "140"
+                        app:cs_end_angle = "40"
+                        app:cs_pointer_alpha_ontouch = "10"
+                        app:cs_pointer_halo_color_ontouch = "#ff6500"
+                        app:cs_pointer_angle = "0"
+                        app:circularflow_viewCenter="@drawable/seek_circle_thumb"
+                        android:thumb="@drawable/seek_circle_thumb"
+                        />
+
+                    <TextView
+                        android:id="@+id/bass_seekbar_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="BASS BOOSTER"
+                        android:layout_below="@id/bass_seekbar"
+                        android:textStyle="bold"
+                        android:textSize="11sp"
+                        android:alpha="0.7"
+                        android:layout_marginTop="-5dp"
+                        android:layout_centerHorizontal="true"
+                        />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/bass_boost_switch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/bass_seekbar_txt"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="-7dp"
+                        android:thumb="@drawable/switch_thumb"
+                        app:track="@drawable/switch_track"
+                        />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/virtualizer_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    >
+                    <me.tankery.lib.circularseekbar.CircularSeekBar
+                        android:id="@+id/virtualizer_seekbar"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        app:cs_circle_style = "round"
+                        app:cs_pointer_stroke_width = "10dp"
+                        app:cs_circle_stroke_width = "20dp"
+                        app:cs_disable_progress_glow = "true"
+                        app:cs_pointer_color = "#ffa500"
+                        app:cs_pointer_halo_border_width = "0dp"
+                        app:cs_pointer_halo_width = "0dp"
+                        app:cs_circle_progress_color = "#ffa500"
+                        app:cs_hide_progress_when_empty = "true"
+                        app:cs_circle_color = "#59ffa500"
+                        app:cs_negative_enabled = "false"
+                        app:cs_move_outside_circle = "true"
+                        app:cs_maintain_equal_circle = "true"
+                        app:cs_start_angle = "140"
+                        app:cs_end_angle = "40"
+                        app:cs_pointer_alpha_ontouch = "10"
+                        app:cs_pointer_halo_color_ontouch = "#ff6500"
+                        app:cs_pointer_angle = "0"
+                        app:circularflow_viewCenter="@drawable/seek_circle_thumb"
+                        android:thumb="@drawable/seek_circle_thumb"
+                        />
+
+                    <TextView
+                        android:id="@+id/virtualizer_seekbar_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="VIRTUALIZER"
+                        android:layout_below="@id/virtualizer_seekbar"
+                        android:textStyle="bold"
+                        android:textSize="11sp"
+                        android:alpha="0.7"
+                        android:layout_marginTop="-5dp"
+                        android:layout_centerHorizontal="true"
+                        />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/virtualizer_switch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/virtualizer_seekbar_txt"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="-7dp"
+                        android:thumb="@drawable/switch_thumb"
+                        app:track="@drawable/switch_track"
+                        />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/loudness_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@id/bass_boost_layout"
+                    app:layout_constraintEnd_toEndOf="@id/virtualizer_layout"
+                    app:layout_constraintTop_toBottomOf="@id/bass_boost_layout"
+                    >
+                    <me.tankery.lib.circularseekbar.CircularSeekBar
+                        android:id="@+id/loudness_seekbar"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        app:cs_circle_style = "round"
+                        app:cs_pointer_stroke_width = "10dp"
+                        app:cs_circle_stroke_width = "20dp"
+                        app:cs_disable_progress_glow = "true"
+                        app:cs_pointer_color = "#ffa500"
+                        app:cs_pointer_halo_border_width = "0dp"
+                        app:cs_pointer_halo_width = "0dp"
+                        app:cs_circle_progress_color = "#ffa500"
+                        app:cs_hide_progress_when_empty = "true"
+                        app:cs_circle_color = "#59ffa500"
+                        app:cs_negative_enabled = "false"
+                        app:cs_move_outside_circle = "true"
+                        app:cs_maintain_equal_circle = "true"
+                        app:cs_start_angle = "140"
+                        app:cs_end_angle = "40"
+                        app:cs_pointer_alpha_ontouch = "10"
+                        app:cs_pointer_halo_color_ontouch = "#ff6500"
+                        app:cs_pointer_angle = "0"
+                        app:circularflow_viewCenter="@drawable/seek_circle_thumb"
+                        android:thumb="@drawable/seek_circle_thumb"
+                        />
+
+                    <TextView
+                        android:id="@+id/loudness_seekbar_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SOUND BOOSTER"
+                        android:layout_below="@id/loudness_seekbar"
+                        android:textStyle="bold"
+                        android:textSize="11sp"
+                        android:alpha="0.7"
+                        android:layout_marginTop="-5dp"
+                        android:layout_centerHorizontal="true"
+                        />
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/loudness_enhancer_switch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/loudness_seekbar_txt"
+                        android:layout_centerHorizontal="true"
+                        android:thumb="@drawable/switch_thumb"
+                        android:layout_marginTop="-7dp"
+                        app:track="@drawable/switch_track"
+                        />
+                </RelativeLayout>
+
+                <SeekBar
+                    android:id="@+id/dynamic_proccesing_seekbar"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/loudness_layout"
+                    android:visibility="gone"
+                    />
+
+                <SeekBar
+                    android:id="@+id/enviroment_reverb_seekbar"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@id/dynamic_proccesing_seekbar"
+                    />
+
+                <SeekBar
+                    android:id="@+id/preset_reverb_seekbar"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@id/enviroment_reverb_seekbar"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

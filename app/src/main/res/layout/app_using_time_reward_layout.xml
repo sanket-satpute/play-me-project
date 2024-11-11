@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#d9d9d9">
+
+    <TextView
+        android:id="@+id/congratulations_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Congratulations"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/black"
+        />
+
+    <TextView
+        android:id="@+id/points_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="3"
+        android:textSize="56sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/congratulations_txt"
+        app:layout_constraintBottom_toTopOf="@id/your_reward_txt"/>
+
+    <TextView
+        android:id="@+id/your_reward_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="your reward"
+        app:layout_constraintTop_toBottomOf="@id/points_txt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/animation_gems_lotti"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="4dp"
+        />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/animation_gems_lotti"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        app:cardCornerRadius="23dp"
+        android:elevation="0dp"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="#3700ff00"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/your_reward_txt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/collect_reward_btn"
+        >
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/daily_points_lottie_animation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:lottie_rawRes="@raw/gems_daily_points_earned"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"/>
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/collect_reward_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/animation_gems_lotti"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="38dp"
+        android:text="Collect Reward"
+        android:textColor="@color/black"
+        app:backgroundTint="#FFA500"
+        android:layout_marginVertical="16dp"
+        app:cornerRadius="17dp"
+        android:paddingVertical="15dp"
+        />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/collect_reward_btn_progress"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:elevation="100dp"
+        app:trackCornerRadius="50dp"
+        app:trackThickness="5dp"
+        android:scaleY="0.6"
+        android:scaleX="0.6"
+        app:trackColor="@android:color/transparent"
+        app:indicatorColor="@color/black"
+        android:indeterminate="true"
+        android:visibility="gone"
+        android:indeterminateBehavior="repeat"
+        app:layout_constraintStart_toStartOf="@id/collect_reward_btn"
+        app:layout_constraintEnd_toEndOf="@id/collect_reward_btn"
+        app:layout_constraintTop_toTopOf="@id/collect_reward_btn"
+        app:layout_constraintBottom_toBottomOf="@id/collect_reward_btn"
+        />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/daily_points_celebration_lottie_animation"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:elevation="50dp"
+        app:lottie_rawRes="@raw/daily_reward_celebration_animation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="false"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/daily_points_celebration_two_dots_lottie_animation"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:elevation="50dp"
+        app:lottie_rawRes="@raw/daily_reward_celebration_two_dots"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="false"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

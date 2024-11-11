@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@android:color/transparent"
+    app:cardElevation="0dp"
+    android:elevation="0dp">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:padding="16dp">
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/user_profile_picture_card"
+            android:layout_width="60dp"
+            android:layout_height="80dp"
+            app:cardCornerRadius="19dp"
+            app:cardBackgroundColor="#d9d9d9"
+            android:elevation="0dp"
+            app:cardElevation="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            >
+            <ImageView
+                android:id="@+id/user_profile_picture"
+                android:layout_width="40dp"
+                android:layout_height="45dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/profits_incoming_money_user_paid_2"
+                android:layout_gravity="center"
+                />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sanket Satpute"
+            app:layout_constraintStart_toEndOf="@id/user_profile_picture_card"
+            app:layout_constraintTop_toTopOf="@id/user_profile_picture_card"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="3dp"
+            />
+
+        <TextView
+            android:id="@+id/transaction_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="14/04/2023 | 12:48"
+            app:layout_constraintStart_toEndOf="@id/user_profile_picture_card"
+            app:layout_constraintTop_toBottomOf="@id/user_name"
+            android:textSize="12sp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="3dp"
+            />
+
+        <TextView
+            android:id="@+id/transaction_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+ \u002424"
+            app:layout_constraintBottom_toBottomOf="@id/transaction_date"
+            app:layout_constraintTop_toTopOf="@id/user_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="21sp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="3dp"
+            android:textStyle="bold"
+            />
+
+        <ProgressBar
+            android:id="@+id/payment_status_progress"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="170dp"
+            android:layout_height="10dp"
+            android:progress="50"
+            android:max="100"
+            android:layout_marginStart="16dp"
+            android:progressDrawable="@drawable/progress_bar_using_time_app"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/user_profile_picture_card"
+            app:layout_constraintTop_toBottomOf="@id/transaction_date"
+            android:visibility="visible"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

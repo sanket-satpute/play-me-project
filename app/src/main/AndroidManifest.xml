@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.sanket_satpute_20.playme">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" /> <!-- <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" -->
+    <!-- tools:remove="android:maxSdkVersion"/> -->
+    <!-- Without this entry storage-permission entry will not be visible under app-info permissions list Android-10 and below -->
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- OR -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:name=".project.application.MyApp"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_app_logo"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:preserveLegacyExternalStorage="true"
+        android:requestLegacyExternalStorage="true"
+        android:resizeableActivity="true"
+        android:roundIcon="@mipmap/ic_app_logo_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.PlayMe"
+        tools:targetApi="34">
+
+        <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
+        <!-- Real AdMob app ID: ca-app-pub-8179179142434773~9934842296 -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-8179179142434773~9934842296" />
+
+        <receiver
+            android:name=".project.receivers.MyAppReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="song_recycler.SONG_IS_DELETED.Action" />
+                <action android:name="songs_deleted.SONG_IS_DELETED.Multiple_Album_Artist.Action" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".project.account.activity.ChangeEmailActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".project.account.activity.ResetPasswordActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <service
+            android:name=".project.account.service.AdWatchAfterTimeIntentService"
+            android:enabled="true"
+            android:exported="false"
+            android:stopWithTask="false" />
+
+        <activity
+            android:name=".project.account.activity.EditProfileActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".project.account.activity.WalletActivity"
+            android:exported="false" />
+        <activity
+            android:name=".project.account.activity.TrackPaymentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".project.account.activity.NotificationInboxActivity"
+            android:exported="false" />
+
+        <service
+            android:name=".project.account.service.TimerIntentService"
+            android:exported="false" />
+
+        <activity
+            android:name=".project.account.activity.RedeemMoneyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".project.account.activity.RewardEarnedActivity"
+            android:exported="false" />
+
+        <service
+            android:name=".project.service.AppStarterIntentService"
+            android:exported="false" />
+        <service
+            android:name=".project.service.VoiceRecognitionIntentService"
+            android:exported="false" />
+
+        <receiver
+            android:name=".project.extra_stuffes.LockScreenBroadcastReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.SCREEN_ON" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".project.activity.LockScreenActivity"
+            android:clearTaskOnLaunch="true"
+            android:exported="true"
+            android:finishOnTaskLaunch="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="unspecified"
+            android:showOnLockScreen="true"
+            android:taskAffinity=""
+            android:noHistory="true"
+            android:turnScreenOn="true">
+            <intent-filter>
+
+                <!-- <category android:name="android.intent.category.LAUNCHER"/> -->
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".project.account.activity.ShowUserDetailActivity"
+            android:exported="false"
+            android:theme="@style/Theme.PlayMe.TransparentStatusBar"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".project.account.activity.LoginActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".project.account.activity.CreateAccountActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
+
+        <service
+            android:name=".project.service.ChangeLogDataAdderIntentService"
+            android:exported="false" />
+        <service
+            android:name=".project.service.AdLoaderIntentService"
+            android:exported="false" />
+        <service
+            android:name=".project.service.RemoveItemsIntentService"
+            android:exported="false" />
+        <service
+            android:name=".project.service.SearchSongIntentService"
+            android:exported="false" />
+
+        <activity
+            android:name=".project.activity.MostPlayedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".project.activity.FeedbackActivity"
+            android:exported="true" />
+        <activity
+            android:name=".project.activity.RecentArtistActivity"
+            android:exported="true" />
+        <activity
+            android:name=".project.activity.RecentAlbumActivity"
+            android:exported="true" />
+        <activity
+            android:name=".project.activity.SelectMultipleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".project.activity.AboutActivity"
+            android:exported="true" />
+        <activity
+            android:name=".project.activity.LockScreenAndNotificationActivity"
+            android:exported="true" />
+        <activity
+            android:name=".project.activity.MainDesignActivity"
+            android:exported="true" />
+        <activity
+            android:name=".project.activity.PlayerDesignActivity"
+            android:exported="true" />
+        <activity
+            android:name=".project.activity.WelcomeActivity"
+            android:exported="true"
+            android:hardwareAccelerated="true"
+            android:theme="@style/welcome_activity_theme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".project.activity.SoundEffectsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".project.activity.ScanSongsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".project.activity.CoreSettingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".project.activity.ThemesActivity"
+            android:exported="true" />
+        <activity
+            android:name=".project.activity.RecentPlayedActivity"
+            android:exported="true"
+            android:hardwareAccelerated="true"
+            android:parentActivityName=".MainActivity" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:ignore="MissingClass">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_providers" />
+        </provider>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity
+            android:name=".project.activity.FevouriteActivity"
+            android:exported="true"
+            android:theme="@style/Theme.PlayMe.TransparentStatusBar" />
+        <activity
+            android:name=".project.activity.ArtistSongsActivity"
+            android:exported="true"
+            android:theme="@style/Theme.PlayMe.TransparentStatusBar" />
+        <activity
+            android:name=".project.activity.ShowSongInfoActivity"
+            android:exported="true" />
+        <activity
+            android:name=".project.activity.AddToPlaylistActivity"
+            android:exported="true" />
+        <activity
+            android:name=".project.activity.InnerPlaylistActivity"
+            android:exported="true" />
+        <activity
+            android:name=".project.activity.EqulizerActivity"
+            android:exported="true" />
+        <activity
+            android:name=".project.activity.AlbumListActivity"
+            android:exported="true"
+            android:theme="@style/Theme.PlayMe.TransparentStatusBar" />
+        <activity
+            android:name=".project.activity.PlayActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:hardwareAccelerated="true" />
+
+        <service
+            android:name=".project.service.BackService"
+            android:enabled="true"
+            android:exported="false"
+            android:stopWithTask="true" /> <!-- <service -->
+        <!-- android:name=".project.service.CustomRecognizer" -->
+        <!-- android:enabled="true" -->
+        <!-- android:exported="false" -->
+        <!-- android:stopWithTask="true" /> -->
+        <receiver
+            android:name=".project.notification.NotificationReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="ACTION_PREVIOUS" />
+                <action android:name="ACTION_NEXT" />
+                <action android:name="ACTION_PLAY" />
+                <action android:name="ACTION_CLOSE" />
+                <action android:name="NotificationReciver" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".project.notification.RemoteControlReciver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter android:priority="214748364">
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+            </intent-filter>
+        </receiver>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.sanket_satpute_20.playme.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+
+</manifest>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".project.activity.PlayActivity">
+
+    <ImageView
+        android:id="@+id/square_activity_2_background_img"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:contentDescription="@string/background"
+        android:scaleType="centerCrop"
+        />
+
+    <RelativeLayout
+        android:id="@+id/first_relative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingTop="10dp"
+        >
+
+        <ImageView
+            android:id="@+id/backbtn"
+            android:layout_width="50dp"
+            android:layout_height="25dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp"
+            android:rotation="90"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_round_arrow_down_24"
+            app:tint="?attr/color"
+            android:contentDescription="@string/back" />
+
+        <RelativeLayout
+            android:id="@+id/info_relative"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_toEndOf="@id/backbtn"
+            >
+
+            <TextView
+                android:id="@+id/now_playing"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:ellipsize="none"
+                android:fontFamily="@font/baloo_bhai"
+                android:singleLine="true"
+                android:text="@string/now_playing"
+                android:textAlignment="textStart"
+                android:textColor="?attr/color"
+                android:textSize="22sp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/tabs"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/now_playing"
+                >
+                <ImageView
+                    android:id="@+id/dot_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/default_dot_2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    android:contentDescription="@string/tabs" />
+
+                <ImageView
+                    android:id="@+id/dot_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/selected_dot2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1"
+                    android:contentDescription="@string/tabs"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/now_playing"
+                android:ellipsize="none"
+                android:layoutDirection="ltr"
+                android:visibility="invisible"
+                app:tabBackground="@drawable/tab_selector2"
+                app:tabGravity="center"
+                app:tabIndicatorAnimationMode="elastic"
+                app:tabIndicatorFullWidth="false"
+                app:tabIndicatorGravity="center"
+                app:tabIndicatorHeight="0dp">
+
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/options_tab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/lyrics_tab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.tabs.TabLayout>
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/options"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            app:tint="?attr/color"
+            android:src="@drawable/ic_baseline_more_option_24"
+            tools:ignore="ContentDescription" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/view_pager_play_activity2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@id/info_relative" />
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

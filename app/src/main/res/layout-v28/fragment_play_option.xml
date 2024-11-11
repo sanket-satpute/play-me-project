@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    tools:context=".project.fragments.PlayOptionFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/constraint_1"
+        >
+
+        <ImageView
+            android:id="@+id/fevourite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/heart_no_fill_24"
+            app:layout_constraintBottom_toTopOf="@id/card_art"
+            app:layout_constraintHorizontal_bias="0.12"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+
+
+        <me.tankery.lib.circularseekbar.CircularSeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="240dp"
+            android:layout_height="240dp"
+            app:cs_circle_style = "round"
+            app:cs_pointer_stroke_width = "10dp"
+            app:cs_circle_stroke_width = "4dp"
+            app:cs_lock_enabled = "true"
+            app:cs_disable_pointer = "false"
+            app:cs_pointer_halo_color_ontouch = "@color/red"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:cs_disable_progress_glow = "true"
+            app:cs_pointer_halo_color = "@color/red"
+            app:cs_pointer_color = "@color/red"
+            app:cs_circle_progress_color = "@color/red"
+            app:cs_hide_progress_when_empty = "true"
+            app:cs_circle_color = "@android:color/darker_gray"
+            app:cs_negative_enabled = "false"
+            app:cs_move_outside_circle = "true"
+            app:cs_maintain_equal_circle = "true"
+            android:pointerIcon="hand"
+            app:circularflow_viewCenter="@drawable/seek_circle_thumb"
+            android:thumb="@drawable/seek_circle_thumb"
+            />
+
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_art"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            app:cardCornerRadius="200dp"
+            app:layout_constraintTop_toTopOf="@id/seekBar"
+            app:layout_constraintLeft_toLeftOf="@id/seekBar"
+            app:layout_constraintRight_toRightOf="@id/seekBar"
+            app:layout_constraintBottom_toBottomOf="@id/seekBar"
+            android:pointerIcon="hand"
+            app:cardElevation="7dp"
+            android:elevation="3dp"
+            android:fadingEdgeLength="10dp"
+            app:cardPreventCornerOverlap="true"
+            android:background="@color/day_dark"
+            android:backgroundTint="@color/day_dark"
+            >
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:id="@+id/song_art"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_music"
+                app:layout_constraintTop_toTopOf="@id/seekBar"
+                app:layout_constraintLeft_toLeftOf="@id/seekBar"
+                app:layout_constraintRight_toRightOf="@id/seekBar"
+                app:layout_constraintBottom_toBottomOf="@id/seekBar"/>
+        </androidx.cardview.widget.CardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/sound_effect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/is_song_chanded"
+            app:cardElevation="5dp"
+            android:layout_margin="10dp"
+            >
+            <ImageView
+                android:id="@+id/sound_effect_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/speaker_24"
+                android:contentDescription="@string/expand"
+                android:layout_margin="5dp"/>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/speed_pitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/artist_name_play_option"
+            app:layout_constraintBottom_toTopOf="@id/repeat_song"
+            android:layout_margin="10dp"
+            app:cardElevation="5dp"
+            >
+            <ImageView
+                android:id="@+id/speed_pitch_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/microphone_24"
+                android:contentDescription="@string/expand"
+                android:layout_margin="5dp"/>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/sleep_timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:cardElevation="5dp"
+            android:layout_margin="10dp"
+            >
+            <ImageView
+                android:id="@+id/sleep_timer_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/stop_timer_stopwatch_24"
+                android:contentDescription="@string/expand"
+                android:layout_margin="5dp"/>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/equlizer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/song_name_play_option"
+            android:layout_margin="10dp"
+            app:cardElevation="5dp"
+            >
+            <ImageView
+                android:id="@+id/equlizer_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/equlizer_setting"
+                android:contentDescription="@string/expand"
+                android:layout_margin="5dp"/>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/expand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/shuffle_song"
+            app:layout_constraintTop_toTopOf="@id/artist_name_play_option"
+            android:backgroundTint="@color/green"
+            android:layout_marginStart="-20dp"
+            android:alpha="0.3"
+            >
+            <ImageView
+                android:id="@+id/expander_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_arrow_left_alt_24"
+                android:rotation="180"
+                android:layout_margin="5dp"
+                android:paddingEnd="10dp"
+                android:contentDescription="@string/expand"
+                tools:ignore="RtlSymmetry" />
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <ImageView
+            android:id="@+id/is_song_chanded"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/ic_baseline_music_note_24"
+            app:layout_constraintBottom_toTopOf="@id/song_name_play_option"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_art"
+            android:layout_marginEnd="70dp"
+            android:visibility="visible"
+            app:tint="?attr/color"
+            tools:ignore="ContentDescription" />
+
+
+            <TextView
+                android:id="@+id/song_name_play_option"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="@string/it_s_realme"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:ellipsize="marquee"
+                android:textAlignment="center"
+                android:maxWidth="210dp"
+                android:fadingEdge="horizontal"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="monospace"
+                app:layout_constraintTop_toBottomOf="@id/card_art"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="56dp"
+                />
+
+            <TextView
+                android:id="@+id/artist_name_play_option"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="5dp"
+                android:text="@string/realme"
+                android:textAlignment="center"
+                android:textSize="14sp"
+                android:maxWidth="140dp"
+                android:singleLine="true"
+                android:fontFamily="monospace"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/song_name_play_option"/>
+
+        <ImageView
+            android:id="@+id/shuffle_song"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/relative2"
+            app:layout_constraintTop_toTopOf="@+id/relative2"
+            app:layout_constraintBottom_toBottomOf="@+id/relative2"
+            android:src="@drawable/nfill_shuffle_second_24"
+            tools:ignore="ContentDescription" />
+
+        <RelativeLayout
+            android:id="@+id/relative2"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/artist_name_play_option"
+            android:layout_marginTop="32dp"
+
+            >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_centerVertical="true"
+                android:background="@drawable/rounder"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/previous_song"
+                android:layout_width="25dp"
+                android:layout_height="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_round_fast_rewind_24"
+                tools:ignore="ContentDescription" />
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                tools:ignore="RelativeOverlap">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/play_pause_fab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:outlineAmbientShadowColor="@color/light_orangiesh"
+                    android:outlineSpotShadowColor="@color/light_orangiesh"
+                    android:requiresFadingEdge="vertical"
+                    android:src="@drawable/ic_round_play_arrow_24"
+                    app:backgroundTint="@color/light_orangiesh"
+                    app:fabCustomSize="70dp"
+                    app:maxImageSize="25dp"
+                    app:pressedTranslationZ="12dp"
+                    app:tint="@color/white"
+                    tools:ignore="ContentDescription" />
+
+
+            </FrameLayout>
+
+            <ImageView
+                android:id="@+id/next_song"
+                android:layout_width="25dp"
+                android:layout_height="20dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_round_fast_forward_24"
+                tools:ignore="ContentDescription" />
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/repeat_song"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/relative2"
+            app:layout_constraintTop_toTopOf="@+id/relative2"
+            app:layout_constraintBottom_toBottomOf="@+id/relative2"
+            android:src="@drawable/undo_and_repeat_alt_24"
+            tools:ignore="ContentDescription" />
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/third_relative"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintVertical_bias="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/relative2"
+            android:visibility="gone"
+            >
+
+            <FrameLayout
+                android:id="@+id/last_frame_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="top"
+                />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/third_relative_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/relative2"
+            android:background="@drawable/rounded_top_left_top_right_corners"
+            >
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/parent_frame_layout"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                app:cardElevation="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_bias="1"
+                android:backgroundTint="@android:color/transparent"
+                android:background="@drawable/rounded_top_left_top_right_corners"
+                >
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/first_coordinate"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                    <TextView
+                        android:id="@+id/up_next_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/current_playing_next"
+                        android:textSize="18sp"
+                        android:fontFamily="@font/baloo_bhai"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0"
+                        app:layout_constraintTop_toBottomOf="@id/divider_first"
+                        android:layout_marginTop="8dp"
+                        android:textStyle="bold"
+                        android:layout_marginHorizontal="16dp"
+                        />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/divider_first"
+                        android:layout_width="30dp"
+                        android:layout_height="2dp"
+                        android:backgroundTint="@color/black"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginTop="16dp"
+                        app:cardCornerRadius="10dp"
+                        android:scaleX="0"
+                        app:cardElevation="0dp"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/bottom_list_recyclerview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/up_next_txt"
+                        android:layout_marginTop="8dp"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+            
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+<!--    160dp 450dp h-->
+<!--    android:translationY="290dp"-->
+
+</FrameLayout>

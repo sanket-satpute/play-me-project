@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".project.account.activity.RedeemMoneyActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/gradient_background_redeem"
+        />
+
+    <ImageView
+        android:id="@+id/back_pressed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/exchange_money_card"
+        app:layout_constraintTop_toTopOf="@id/exchange_money_txt"
+        app:layout_constraintBottom_toBottomOf="@id/exchange_money_txt"
+        android:src="@drawable/ic_baseline_arrow_left_alt_24"
+        app:tint="@color/white"
+        />
+
+    <TextView
+        android:id="@+id/exchange_money_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Exchange Money"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="22sp"
+        android:textColor="@color/white"
+        android:layout_margin="48dp"
+        android:textStyle="bold"
+        />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/exchange_money_card"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/exchange_money_txt"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="28dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="@color/white"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/total_coins_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Coins"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_margin="26dp"
+                android:textStyle="bold"
+                android:alpha="0.8"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/total_coins"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="56"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/total_coins_text"
+                android:textStyle="bold"
+                android:alpha="0.8"
+                android:textSize="52sp"
+                android:textColor="@color/black"/>
+
+            <ImageView
+                android:id="@+id/arrow_image"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/total_coins"
+                android:src="@drawable/ic_baseline_arrow_left_alt_24"
+                android:rotation="270"
+                android:scaleY="1.2"
+                app:tint="@color/black"
+                />
+
+            <TextView
+                android:id="@+id/total_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/arrow_image"
+                android:textStyle="bold"
+                android:alpha="0.8"
+                android:layout_marginTop="8dp"
+                android:textSize="24sp"
+                android:textColor="@color/black"/>
+            <!--#FFA500-->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/exchange_btn"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginHorizontal="26dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/total_money"
+                app:backgroundTint="#FFA500"
+                android:text="Exchange"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:outlineProvider="none"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/remaining_coins"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="6,600"
+        app:layout_constraintStart_toStartOf="@id/exchange_money_card"
+        app:layout_constraintTop_toBottomOf="@id/exchange_money_card"
+        android:textStyle="bold"
+        android:alpha="0.8"
+        android:layout_margin="34dp"
+        android:textSize="28sp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/remaining_coins_txt"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:alpha="0.8"
+        android:text="Remaining Coins"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/remaining_coins"
+        app:layout_constraintStart_toStartOf="@id/remaining_coins"
+        app:layout_constraintTop_toBottomOf="@id/remaining_coins" />
+
+    <TextView
+        android:id="@+id/totle_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="15"
+        app:layout_constraintEnd_toEndOf="@id/exchange_money_card"
+        app:layout_constraintTop_toBottomOf="@id/exchange_money_card"
+        android:textStyle="bold"
+        android:alpha="0.8"
+        android:layout_margin="34dp"
+        android:textSize="28sp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/total_money_txt"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:alpha="0.8"
+        android:text="Total Money"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/totle_money"
+        app:layout_constraintStart_toStartOf="@+id/totle_money"
+        app:layout_constraintTop_toBottomOf="@id/totle_money" />
+
+    <RelativeLayout
+        android:id="@+id/total_money_earned_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/ad_layout"
+        app:layout_constraintTop_toBottomOf="@+id/remaining_coins_txt"
+        >
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total "
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:textColor="@color/black"
+            android:alpha="0.5"
+            />
+        <TextView
+            android:id="@+id/money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 3,024 "
+            android:layout_toEndOf="@id/total"
+            android:textColor="#FFA500"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_centerVertical="true"
+            />
+        <TextView
+            android:id="@+id/earned_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Money Earned From "
+            android:layout_toEndOf="@id/money"
+            android:layout_centerVertical="true"
+            android:textColor="@color/black"
+            android:alpha="0.5"
+            />
+        <TextView
+            android:id="@+id/play_me"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" PlayMe"
+            android:layout_toEndOf="@id/earned_money"
+            android:textColor="#FFA500"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_centerVertical="true"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/ad_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
