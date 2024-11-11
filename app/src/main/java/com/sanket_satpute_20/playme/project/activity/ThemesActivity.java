@@ -433,11 +433,12 @@ public class ThemesActivity extends AppCompatActivity {
             doExtra();
         });
 
-        if (select_btn != null)
-        select_btn.setOnClickListener(view -> {
-            finish();
-            Toast.makeText(this, "Not Implemented", Toast.LENGTH_SHORT).show();
-        });
+        if (select_btn != null) {
+            select_btn.setOnClickListener(view -> {
+                finish();
+                Toast.makeText(this, "Not Implemented", Toast.LENGTH_SHORT).show();
+            });
+        }
 
         other_color.setOnClickListener(view -> {
             openColorPickerDilog(ACCENT_COLOR, "ACCENT_COLOR");

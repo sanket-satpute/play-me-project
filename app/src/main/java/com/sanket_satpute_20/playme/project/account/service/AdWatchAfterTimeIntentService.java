@@ -1,8 +1,11 @@
 package com.sanket_satpute_20.playme.project.account.service;
 
+import static androidx.core.app.ActivityCompat.requestPermissions;
+
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Binder;
 import android.os.Build;
 import android.os.CountDownTimer;
@@ -15,7 +18,9 @@ import androidx.core.app.TaskStackBuilder;
 
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.sanket_satpute_20.playme.MainActivity;
+import android.Manifest;
 import com.sanket_satpute_20.playme.R;
+import com.sanket_satpute_20.playme.project.account.activity.NotificationPermissionActivity;
 
 public class AdWatchAfterTimeIntentService extends Service {
 // write firebase code to get time from firebase
@@ -59,8 +64,23 @@ public class AdWatchAfterTimeIntentService extends Service {
         isAdWatchAfterServiceRunning = false;
     }
 
-    private void taskIsCompleted() {
+    // Define this at the top of your class
+    private static final int REQUEST_CODE_NOTIFICATIONS = 1001;
 
+    private void taskIsCompleted() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
+                checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+
+            // Start the NotificationPermissionActivity to request permission
+            Intent permissionIntent = new Intent(this, NotificationPermissionActivity.class);
+            permissionIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(permissionIntent);
+
+            // Return as we can't proceed without permission
+            return;
+        }
+
+        // The rest of your notification code goes here, which will execute if permission is already granted
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.setAction("open.setting.fragment");
@@ -68,18 +88,16 @@ public class AdWatchAfterTimeIntentService extends Service {
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(getApplicationContext());
         stackBuilder.addNextIntentWithParentStack(intent);
 
-        final int flag = Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ?
-                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE : PendingIntent.FLAG_UPDATE_CURRENT;
+        final int flag = PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE;
 
         PendingIntent pendingIntent = stackBuilder.getPendingIntent(0, flag);
 
-        String long_text = "Great news! Time is up. You can watch the next ad and earn money. By watching ads," +
-                " you help us keep our app free for everyone. Thank you for supporting us and enjoy your reward!";
+        String longText = "Great news! Time is up. You can watch the next ad and earn money. By watching ads, you help us keep our app free for everyone. Thank you for supporting us and enjoy your reward!";
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, String.valueOf(82))
                 .setSmallIcon(R.drawable.triangle_app_logo_notification)
                 .setContentTitle("Time's up! Watch an ad and earn money")
-                .setContentText(long_text)
+                .setContentText(longText)
                 .setContentIntent(pendingIntent)
                 .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
                 .setOnlyAlertOnce(true)
@@ -88,13 +106,16 @@ public class AdWatchAfterTimeIntentService extends Service {
                 .setChannelId(getApplicationContext().getPackageName());
 
         NotificationCompat.BigTextStyle bigTextStyle = new NotificationCompat.BigTextStyle()
-                .bigText(long_text)
+                .bigText(longText)
                 .setSummaryText("Time's up!");
         builder.setStyle(bigTextStyle);
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(getApplicationContext());
         notificationManager.notify(81, builder.build());
     }
+
+
+
 
     public long getRemainTime() {
         return remain_time;

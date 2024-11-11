@@ -5,6 +5,7 @@ import static com.sanket_satpute_20.playme.project.extra_stuffes.Constants.NOTIF
 import android.app.Notification;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 
 import androidx.core.content.ContextCompat;
 
@@ -31,7 +32,9 @@ public class MusicPlayerNotificationListener implements PlayerNotificationManage
     public void onNotificationPosted(int notificationId, Notification notification, boolean ongoing) {
         if (ongoing && !BackService.isForegroundService) {
             ContextCompat.startForegroundService(context, new Intent(context, this.getClass()));
-            service.startForeground(NOTIFICATION_ID, notification);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                service.startForeground(NOTIFICATION_ID, notification);
+            }
             BackService.isForegroundService = true;
         }
     }

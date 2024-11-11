@@ -16,12 +16,15 @@
     <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
     <uses-permission android:name="android.permission.READ_MEDIA_AUDIO"/>
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK"/>
     <uses-permission
         android:name="android.permission.WRITE_SETTINGS"
         tools:ignore="ProtectedPermissions" />
@@ -289,12 +292,17 @@
             android:name=".MainActivity"
             android:exported="true"
             android:hardwareAccelerated="true" />
+        <activity android:name=".project.account.activity.NotificationPermissionActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+        </activity>
 
         <service
             android:name=".project.service.BackService"
             android:enabled="true"
             android:exported="false"
-            android:stopWithTask="true" /> <!-- <service -->
+            android:stopWithTask="true"
+            android:foregroundServiceType="mediaPlayback"/> <!-- <service -->
         <!-- android:name=".project.service.CustomRecognizer" -->
         <!-- android:enabled="true" -->
         <!-- android:exported="false" -->
